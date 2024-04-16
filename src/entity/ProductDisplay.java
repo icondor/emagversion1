@@ -3,6 +3,8 @@ package entity;
 public class ProductDisplay {
 
     private String name;
+
+    private long id;
     private String description;
 
     private String price;
@@ -51,8 +53,9 @@ public class ProductDisplay {
         this.categoryName = categoryName;
     }
 
-    public ProductDisplay(String name, String description, String price, String vendorName, String categoryName) {
+    public ProductDisplay(String name, long id, String description, String price, String vendorName, String categoryName) {
         this.name = name;
+        this.id = id;
         this.description = description;
         this.price = price;
         this.vendorName = vendorName;
@@ -63,6 +66,7 @@ public class ProductDisplay {
     public String toString() {
         return "ProductDisplay{" +
                 "name='" + name + '\'' +
+                ", id=" + id +
                 ", description='" + description + '\'' +
                 ", price='" + price + '\'' +
                 ", vendorName='" + vendorName + '\'' +

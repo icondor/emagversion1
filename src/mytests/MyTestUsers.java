@@ -3,6 +3,7 @@ package mytests;
 import db.DbUsersOperations;
 import entity.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class MyTestUsers {
@@ -21,10 +22,15 @@ public class MyTestUsers {
         User um1 = new User("lidl", "pwd", true, false);
 
         DbUsersOperations db = new DbUsersOperations();
-        db.insert(u);
-        db.insert(u1);
-        db.insert(um);
-        db.insert(um1);
+//        db.insert(u);
+//        db.insert(u1);
+//        db.insert(um);
+        try {
+            db.insert(um1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
     private void testSelect(boolean b) {
 

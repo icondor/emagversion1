@@ -65,4 +65,9 @@ public class User {
         this.isActive = isActive;
         this.isBuyer = isBuyer;
     }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }

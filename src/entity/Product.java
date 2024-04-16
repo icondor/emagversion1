@@ -77,4 +77,13 @@ public class Product {
         this.iduser = iduser;
         this.idCategory = idCategory;
     }
+
+    public Product(long id, String name, String description, double price, long iduser, long idCategory) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.iduser = iduser;
+        this.idCategory = idCategory;
+    }
 }

@@ -58,7 +58,7 @@ try {
     Connection conn = DriverManager.getConnection(URLDB, USERNAMEDB, PWDDB);
 
     // rulare sql
-    String q="select products.name as name,products.description as description, products.price as price, users.username as vendorname, categories.name as categoryname \n" +
+    String q="select products.id as id, products.name as name,products.description as description, products.price as price, users.username as vendorname, categories.name as categoryname \n" +
             "\tfrom products, users, categories\n" +
             "\twhere products.iduser=users.id \n" +
             "\tand products.idcategory=categories.id \n" +
@@ -78,8 +78,9 @@ try {
 
         String vendorname = rs.getString("vendorname").trim();
         String categoryname = rs.getString("categoryname").trim();
+        long  id = rs.getLong("id");
 
-        ProductDisplay p = new ProductDisplay(name, desc,String.valueOf(price), vendorname, categoryname);
+        ProductDisplay p = new ProductDisplay( name,id, desc,String.valueOf(price), vendorname, categoryname);
         lp.add(p);
     }
 }
@@ -89,5 +90,8 @@ catch (SQLException e) {
 
         return lp;
     }
+
+
+
 
 }

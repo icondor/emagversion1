@@ -8,7 +8,49 @@ import java.util.List;
 public class DbUsersOperations {
 
 
-    public boolean insert (User u)  {
+    public Long login(User user) {
+        Long idUser=null;
+        // citeste din db toti userii si returneaza lista lor
+
+        try {
+
+            // conectare la db cu incarcare driver
+            final String URLDB = "jdbc:postgresql://localhost:5432/emag";
+            final String USERNAMEDB = "postgres";
+            final String PWDDB = "postgres";
+            Connection conn = DriverManager.getConnection(URLDB, USERNAMEDB, PWDDB);
+
+            // rulare sql
+            String q;
+
+                q = "select id from users where username=? and password=?";
+
+            PreparedStatement pSt = conn.prepareStatement(q);
+
+             pSt.setString(1, user.getUsername());
+            pSt.setString(2, user.getPassword());
+
+            ResultSet rs = pSt.executeQuery();
+
+
+            while (rs.next()) {
+                idUser= rs.getLong("id");
+                System.out.println("uite-l ");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+if(idUser==null)
+    System.out.println("nu e in db ");
+        return idUser;
+    }
+
+
+
+
+
+    public boolean insert (User u) throws SQLException{
 
         // COD CARE SCRIE IN DB
 
@@ -34,6 +76,7 @@ public class DbUsersOperations {
             val = pSt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw e;
         }
         boolean ok = false;
         if(val!=0)
