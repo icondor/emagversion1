@@ -22,7 +22,7 @@ public class DbBasketOperations {
 
 
         // conectare la db cu incarcare driver
-        final String URLDB = "jdbc:postgresql://localhost:5432/emag";
+        final String URLDB = "jdbc:postgresql://localhost:5432/icondor";
         final String USERNAMEDB ="postgres";
         final String PWDDB ="vvv";
         int val = 0; // 1
@@ -50,7 +50,7 @@ public class DbBasketOperations {
 try {
 
     // conectare la db cu incarcare driver
-    final String URLDB = "jdbc:postgresql://localhost:5432/emag";
+    final String URLDB = "jdbc:postgresql://localhost:5432/icondor";
     final String USERNAMEDB = "postgres";
     final String PWDDB = "postgres";
     Connection conn = DriverManager.getConnection(URLDB, USERNAMEDB, PWDDB);
@@ -94,7 +94,7 @@ catch (SQLException e) {
 
 
         // conectare la db cu incarcare driver
-        final String URLDB = "jdbc:postgresql://localhost:5432/emag";
+        final String URLDB = "jdbc:postgresql://localhost:5432/icondor";
         final String USERNAMEDB ="postgres";
         final String PWDDB ="vvv";
         int val = 0; // 1

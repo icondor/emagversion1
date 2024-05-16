@@ -14,26 +14,26 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-//        boolean existentUser=false;
-//        do {
-//             existentUser=false;
-//            System.out.println("Salut , hai sa ne inregistram ");
-//            Scanner sc = new Scanner(System.in);
-//            System.out.print("New User:");
-//            String username = sc.nextLine();
-//            System.out.print("Pwd:");
-//            String pwd = sc.nextLine();
-//            User u = new User(username, pwd);
-//
-//            DbUsersOperations db = new DbUsersOperations();
-//            try {
-//                db.insert(u);
-//            } catch (SQLException e) {
-//                existentUser=true;
-//                System.out.println("nu se poate cu acest user, reincearca");
-//            }
-//        }
-//        while(existentUser);
+        boolean existentUser=false;
+        do {
+             existentUser=false;
+            System.out.println("Salut , hai sa ne inregistram ");
+            Scanner sc = new Scanner(System.in);
+            System.out.print("New User:");
+            String username = sc.nextLine();
+            System.out.print("Pwd:");
+            String pwd = sc.nextLine();
+            User u = new User(username, pwd);
+
+            DbUsersOperations db = new DbUsersOperations();
+            try {
+                db.insert(u);
+            } catch (SQLException e) {
+                existentUser=true;
+                System.out.println("nu se poate cu acest user, reincearca");
+            }
+        }
+        while(existentUser);
 
 
 //
@@ -80,25 +80,25 @@ public class Main {
 //
 
         // afisez cosului userului logat
+//
+//        DbBasketOperations dbb = new DbBasketOperations();
+//        List<BasketDisplay> lb = dbb.readBasketOfAUser(12L);
+//        for(BasketDisplay bask: lb) {
+//            System.out.println(bask);
+//        }
 
-        DbBasketOperations dbb = new DbBasketOperations();
-        List<BasketDisplay> lb = dbb.readBasketOfAUser(12L);
-        for(BasketDisplay bask: lb) {
-            System.out.println(bask);
-        }
 
-
- // sterg din cos
-        System.out.print("ce id sterg din cos:");
-        Scanner sca = new Scanner(System.in);
-        Long idcoosdesters=sca.nextLong();
-        dbb.deleteBasketItem(idcoosdesters);
-
-    // cer din nou cosul de la db
-         lb = dbb.readBasketOfAUser(12L);
-        for(BasketDisplay bask: lb) {
-            System.out.println(bask);
-        }
+// // sterg din cos
+//        System.out.print("ce id sterg din cos:");
+//        Scanner sca = new Scanner(System.in);
+//        Long idcoosdesters=sca.nextLong();
+//        dbb.deleteBasketItem(idcoosdesters);
+//
+//    // cer din nou cosul de la db
+//         lb = dbb.readBasketOfAUser(12L);
+//        for(BasketDisplay bask: lb) {
+//            System.out.println(bask);
+//        }
 
 
  }
